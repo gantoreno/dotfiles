@@ -1,3 +1,9 @@
+if [[ $TERM_PROGRAM == 'ghostty' ]]; then
+  if [[ -z $TMUX ]]; then
+    exec tmux
+  fi
+fi
+
 # Unicode language support
 export LC_ALL=en_US.UTF-8
 
@@ -13,7 +19,7 @@ setopt prompt_subst
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 
-if [[ $TERM_PROGRAM == 'ghostty' ]]; then
+if [[ $TERM_PROGRAM == 'tmux' ]]; then
   ZSH_THEME="starship"
 else
   ZSH_THEME="robbyrussell"
@@ -24,7 +30,7 @@ plugins=(
   z
 )
 
-if [[ $TERM_PROGRAM == 'ghostty' ]]; then
+if [[ $TERM_PROGRAM == 'tmux' ]]; then
   plugins=($plugins zsh-syntax-highlighting)
 fi
 
@@ -35,12 +41,12 @@ alias code="cursor"
 
 export EDITOR="cursor"
 
-if [[ $TERM_PROGRAM == 'ghostty' ]]; then
+if [[ $TERM_PROGRAM == 'tmux' ]]; then
   export EDITOR="nvim"
 fi
 
 # Aliases
-if [[ $TERM_PROGRAM == 'ghostty' ]]; then
+if [[ $TERM_PROGRAM == 'tmux' ]]; then
   alias ls="eza"
   alias vim="nvim"
 fi
@@ -103,6 +109,6 @@ export AWS_SDK_LOAD_CONFIG=1
 export PYTHON="/opt/homebrew/bin/python3"
 
 # Fetch
-if [[ $TERM_PROGRAM == 'ghostty' ]]; then
+if [[ $TERM_PROGRAM == 'tmux' ]]; then
   macfetch
 fi
