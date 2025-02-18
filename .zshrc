@@ -31,6 +31,10 @@ fi
 source "$ZSH/oh-my-zsh.sh"
 
 # Editor
+alias code="cursor"
+
+export EDITOR="cursor"
+
 if [[ $TERM_PROGRAM == 'ghostty' ]]; then
   export EDITOR="nvim"
 fi
